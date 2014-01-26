@@ -120,7 +120,15 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.getsu.wcy.aut
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.getsu.wcy.auth.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.getsu.wcy.auth.Role'
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.interceptUrlMap = [
+        '/securityInfo/**':                 ['ROLE_ADMIN'],
+        '/registrationCode/**':             ['ROLE_ADMIN'],
+        '/role/**':                         ['ROLE_ADMIN'],
+        '/user/**':                         ['ROLE_ADMIN'],
+
+        '/foo/**':                          ['ROLE_USER'],
+
         '/':                                ['permitAll'],
         '/index':                           ['permitAll'],
         '/index.gsp':                       ['permitAll'],
@@ -130,6 +138,5 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/**/favicon.ico':                  ['permitAll'],
         '/login/**':                        ['permitAll'],
         '/logout/**':                       ['permitAll'],
-        '/**/*':                            ['ROLE_USER'],
 ]
 

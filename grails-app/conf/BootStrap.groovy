@@ -5,9 +5,13 @@ import com.getsu.wcy.auth.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-        def u = new User(username: 'jdb', password: 'password').save()
-        def r = new Role(authority: 'ROLE_USER').save()
-        UserRole.create(u, r)
+        def jdb = new User(username: 'jdb', password: 'password').save()
+        def admin = new Role(authority: 'ROLE_ADMIN').save()
+        UserRole.create(jdb, admin)
+        def user = new Role(authority: 'ROLE_USER').save()
+        UserRole.create(jdb, user)
+        def fab = new User(username: 'fab', password: 'password').save()
+        UserRole.create(fab, user)
     }
 
     def destroy = {
