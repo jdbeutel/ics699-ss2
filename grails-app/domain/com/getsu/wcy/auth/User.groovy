@@ -11,16 +11,24 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
-	static transients = ['springSecurityService']
+	static transients = ['springSecurityService', 'email']
 
 	static constraints = {
-		username blank: false, unique: true
+		username blank: false, unique: true, email: true
 		password blank: false
 	}
 
 	static mapping = {
 		password column: '`password`'
 	}
+
+    String getEmail() {
+        username
+    }
+
+    void setEmail(String email) {
+        username = email
+    }
 
 	Set<Role> getAuthorities() {
 		UserRole.findAllByUser(this).collect { it.role } as Set

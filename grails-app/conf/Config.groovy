@@ -11,6 +11,9 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+// to avoid putting secrets in git
+grails.config.locations = ["file:${userHome}/grails-conf/${appName}-config.groovy"]
+
 grails.project.groupId = 'com.getsu.wcy' // change this to alter the default package name and Maven publishing destination
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
@@ -112,6 +115,8 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    warn 'grails.app.services.grails.plugin.springsecurity.ui.SpringSecurityUiService'
 }
 
 
@@ -121,6 +126,8 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.getsu.wcy.
 grails.plugin.springsecurity.authority.className = 'com.getsu.wcy.auth.Role'
 grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
 grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.ui.register.emailFrom = 'bendy@getsu.com'
+grails.plugin.springsecurity.ui.register.emailSubject = 'new Bendy account'
 grails.plugin.springsecurity.interceptUrlMap = [
         '/securityInfo/**':                 ['ROLE_ADMIN'],
         '/registrationCode/**':             ['ROLE_ADMIN'],
@@ -138,5 +145,5 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/**/favicon.ico':                  ['permitAll'],
         '/login/**':                        ['permitAll'],
         '/logout/**':                       ['permitAll'],
+        '/register/**':                     ['permitAll'],
 ]
-
