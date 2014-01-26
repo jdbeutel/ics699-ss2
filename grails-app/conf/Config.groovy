@@ -11,7 +11,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
+grails.project.groupId = 'com.getsu.wcy' // change this to alter the default package name and Maven publishing destination
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
@@ -119,13 +119,17 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.getsu.wcy.auth.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.getsu.wcy.auth.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.getsu.wcy.auth.Role'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
-	'/**/js/**':                      ['permitAll'],
-	'/**/css/**':                     ['permitAll'],
-	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+grails.plugin.springsecurity.interceptUrlMap = [
+        '/':                                ['permitAll'],
+        '/index':                           ['permitAll'],
+        '/index.gsp':                       ['permitAll'],
+        '/**/js/**':                        ['permitAll'],
+        '/**/css/**':                       ['permitAll'],
+        '/**/images/**':                    ['permitAll'],
+        '/**/favicon.ico':                  ['permitAll'],
+        '/login/**':                        ['permitAll'],
+        '/logout/**':                       ['permitAll'],
+        '/**/*':                            ['ROLE_USER'],
 ]
 
