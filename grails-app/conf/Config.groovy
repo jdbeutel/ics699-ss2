@@ -83,7 +83,7 @@ grails.spring.bean.packages = []
 grails.web.disable.multipart=false
 
 // request parameters to mask when logging exceptions
-grails.exceptionresolver.params.exclude = ['password']
+grails.exceptionresolver.params.exclude = ['password', 'password2']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
@@ -150,3 +150,17 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/logout/**':                       ['permitAll'],
         '/register/**':                     ['permitAll'],
 ]
+
+// mail depends on external config file
+grails {
+    mail {
+        // host =       // in external config file
+        port = 465
+        // username =        // in external config file
+        // password =        // in external config file
+        props = ["mail.smtp.auth":"true",
+                "mail.smtp.socketFactory.port":"465",
+                "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                "mail.smtp.socketFactory.fallback":"false"]
+    }
+}
