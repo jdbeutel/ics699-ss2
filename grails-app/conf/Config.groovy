@@ -149,6 +149,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/login/**':                        ['permitAll'],
         '/logout/**':                       ['permitAll'],
         '/register/**':                     ['permitAll'],
+        '/oauth/**':                        ['permitAll'],
 ]
 
 // mail depends on external config file
@@ -164,3 +165,23 @@ grails {
                 "mail.smtp.socketFactory.fallback":"false"]
     }
 }
+
+def appName = grails.util.Metadata.current.'app.name'
+def baseURL = grails.serverURL ?: "http://localhost:${System.getProperty('server.port', '8080')}/${appName}"
+oauth {
+    providers {
+
+        // for Google OAuth 2.0
+        google {
+            api = org.grails.plugin.springsecurity.oauth.GoogleApi20
+            key = // i.e., client ID for web app, in external config file
+            secret = // i.e., client secret for web app, in external config file
+            successUri = '/oauth/google/success'
+            failureUri = '/oauth/google/error'
+            callback = "${baseURL}/oauth/google/callback"
+            scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
+        }
+    }
+}
+// Added by the Spring Security OAuth plugin:
+grails.plugin.springsecurity.oauth.domainClass = 'com.getsu.wcy.auth.OAuthID'

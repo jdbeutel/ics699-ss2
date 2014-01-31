@@ -40,6 +40,15 @@
 				<s2ui:submitButton elementId='loginButton' form='loginForm' messageCode='spring.security.ui.login.login'/>
 			</td>
 		</tr>
+        <tr>
+            <td colspan='2'>
+                <oauth:connect provider="google" id="google-connect-link">Google</oauth:connect>
+
+                Logged with google?
+                <s2o:ifLoggedInWith provider="google">yes</s2o:ifLoggedInWith>
+                <s2o:ifNotLoggedInWith provider="google">no</s2o:ifNotLoggedInWith>
+            </td>
+        </tr>
 	</table>
 
 	</div>
