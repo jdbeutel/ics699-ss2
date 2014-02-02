@@ -56,45 +56,8 @@
     </g:hasErrors>
 
     <g:form action="createAccount" method="post" autocomplete="off">
-        <fieldset>
-            <legend><g:message code="springSecurity.oauth.registration.create.legend" default="Create a new account"/></legend>
-            <div class="fieldcontain ${hasErrors(bean: createAccountCommand, field: 'username', 'error')} ">
-                <label for='username'><g:message code="OAuthCreateAccountCommand.username.label" default="Username"/>:</label>
-                <g:textField name='username' value='${createAccountCommand?.username}'/>
-            </div>
-            <div class="fieldcontain ${hasErrors(bean: createAccountCommand, field: 'password1', 'error')} ">
-                <label for='password1'><g:message code="OAuthCreateAccountCommand.password1.label" default="Password"/>:</label>
-                <g:passwordField name='password1' value='${createAccountCommand?.password1}'/>
-            </div>
-            <div class="fieldcontain ${hasErrors(bean: createAccountCommand, field: 'password2', 'error')} ">
-                <label for='password2'><g:message code="OAuthCreateAccountCommand.password2.label" default="Password re-type"/>:</label>
-                <g:passwordField name='password2' value='${createAccountCommand?.password2}'/>
-            </div>
-            <g:submitButton name="${message(code: 'springSecurity.oauth.registration.create.button', default: 'Create')}"/>
-        </fieldset>
-    </g:form>
-
-    <br/>
-
-    <g:hasErrors bean="${linkAccountCommand}">
-    <div class="errors">
-        <g:renderErrors bean="${linkAccountCommand}" as="list"/>
-    </div>
-    </g:hasErrors>
-
-    <g:form action="linkAccount" method="post" autocomplete="off">
-        <fieldset>
-            <legend><g:message code="springSecurity.oauth.registration.login.legend" default="Link to an existing account"/></legend>
-            <div class="fieldcontain ${hasErrors(bean: linkAccountCommand, field: 'username', 'error')} ">
-                <label for='username'><g:message code="OAuthLinkAccountCommand.username.label" default="Username"/>:</label>
-                <g:textField name='username' value='${linkAccountCommand?.username}'/>
-            </div>
-            <div class="fieldcontain ${hasErrors(bean: linkAccountCommand, field: 'password', 'error')} ">
-                <label for='password'><g:message code="OAuthLinkAccountCommand.password.label" default="Password"/>:</label>
-                <g:passwordField name='password' value='${linkAccountCommand?.password}'/>
-            </div>
-            <g:submitButton name="${message(code: 'springSecurity.oauth.registration.login.button', default: 'Login')}"/>
-        </fieldset>
+        Create a new Bendy account for ${session.springSecurityOAuthToken.socialId}?
+        <g:submitButton name="${message(code: 'springSecurity.oauth.registration.create.button', default: 'Create')}"/>
     </g:form>
 
     <br/>

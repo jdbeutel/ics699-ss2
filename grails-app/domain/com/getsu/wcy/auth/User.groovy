@@ -17,7 +17,7 @@ class User {
 
 	static constraints = {
 		username blank: false, unique: true, email: true
-		password blank: false
+		password blank: false, nullable: true
 	}
 
 	static mapping = {
@@ -47,6 +47,12 @@ class User {
 	}
 
 	protected void encodePassword() {
-		password = springSecurityService.encodePassword(password)
+        if (password != null) {
+            password = springSecurityService.encodePassword(password)
+        }
 	}
+
+    String getPassword() {
+        password == null ? 'matches no encryption' : password
+    }
 }
