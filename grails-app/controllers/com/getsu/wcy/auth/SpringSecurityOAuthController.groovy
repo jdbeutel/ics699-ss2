@@ -39,6 +39,7 @@ class SpringSecurityOAuthController {
     def grailsApplication
     def oauthService
     def springSecurityService
+    def passwordEncoder
 
     /**
      * This can be used as a callback for a successful OAuth authentication
@@ -110,9 +111,8 @@ class SpringSecurityOAuthController {
 
         if (request.post) {
             boolean linked = command.validate() && User.withTransaction { status ->
-                User user = User.findByUsernameAndPassword(
-                        command.username, springSecurityService.encodePassword(command.password))
-                if (user) {
+                User user = User.findByUsername(command.username)
+                if (user && passwordEncoder.isPasswordValid(user.password, command.password, null)) {
                     user.addToOAuthIDs(provider: oAuthToken.providerName, accessToken: oAuthToken.socialId, user: user)
                     if (user.validate() && user.save()) {
                         oAuthToken = updateOAuthToken(oAuthToken, user)

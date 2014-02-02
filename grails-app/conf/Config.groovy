@@ -83,7 +83,7 @@ grails.spring.bean.packages = []
 grails.web.disable.multipart=false
 
 // request parameters to mask when logging exceptions
-grails.exceptionresolver.params.exclude = ['password', 'password2']
+grails.exceptionresolver.params.exclude = ['password', 'password1', 'password2']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
@@ -177,7 +177,7 @@ oauth {
             key = // i.e., client ID for web app, in external config file
             secret = // i.e., client secret for web app, in external config file
             successUri = '/oauth/google/success'
-            failureUri = '/oauth/google/error'
+            failureUri = '/oauth/google/failure'
             callback = "${baseURL}/oauth/google/callback"
             scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
         }
