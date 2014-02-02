@@ -28,10 +28,10 @@
 		<s2ui:textFieldRow name='username' bean="${command}" value="${command.username}"
 		                   size='40' labelCode='user.email.label' labelCodeDefault='E-mail'/>
 
-		<s2ui:passwordFieldRow name='password' labelCode='user.password.label' bean="${command}"
+		<s2ui:textFieldRow name='password' labelCode='user.password.label' bean="${command}"
                              size='40' labelCodeDefault='Password' value="${command.password}"/>
 
-		<s2ui:passwordFieldRow name='password2' labelCode='user.password2.label' bean="${command}"
+		<s2ui:textFieldRow name='password2' labelCode='user.password2.label' bean="${command}"
                              size='40' labelCodeDefault='Password (again)' value="${command.password2}"/>
 
 	</tbody>

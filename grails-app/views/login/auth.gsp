@@ -18,12 +18,12 @@
 
 	<table>
 		<tr>
-			<td><label for="username"><g:message code='spring.security.ui.login.username'/></label></td>
+			<td><label for="username">Email:</label></td>
 			<td><input name="j_username" id="username" size="20" /></td>
 		</tr>
 		<tr>
 			<td><label for="password"><g:message code='spring.security.ui.login.password'/></label></td>
-			<td><input type="password" name="j_password" id="password" size="20" /></td>
+			<td><input name="j_password" id="password" size="20" /></td>
 		</tr>
 		<tr>
 			<td colspan='2'>
@@ -42,11 +42,7 @@
 		</tr>
         <tr>
             <td colspan='2'>
-                <oauth:connect provider="google" id="google-connect-link">Google</oauth:connect>
-
-                Logged with google?
-                <s2o:ifLoggedInWith provider="google">yes</s2o:ifLoggedInWith>
-                <s2o:ifNotLoggedInWith provider="google">no</s2o:ifNotLoggedInWith>
+                <oauth:connect provider="google" id="google-connect-link">Login with Google</oauth:connect>
             </td>
         </tr>
 	</table>

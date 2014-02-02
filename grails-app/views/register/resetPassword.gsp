@@ -20,10 +20,10 @@
 	<h4><g:message code='spring.security.ui.resetPassword.description'/></h4>
 
 	<table>
-		<s2ui:passwordFieldRow name='password' labelCode='resetPasswordCommand.password.label' bean="${command}"
+		<s2ui:textFieldRow name='password' labelCode='resetPasswordCommand.password.label' bean="${command}"
                              labelCodeDefault='Password' value="${command?.password}"/>
 
-		<s2ui:passwordFieldRow name='password2' labelCode='resetPasswordCommand.password2.label' bean="${command}"
+		<s2ui:textFieldRow name='password2' labelCode='resetPasswordCommand.password2.label' bean="${command}"
                              labelCodeDefault='Password (again)' value="${command?.password2}"/>
 	</table>
 
