@@ -179,7 +179,7 @@ oauth {
             successUri = '/oauth/google/success'
             failureUri = '/oauth/google/failure'
             callback = "${baseURL}/oauth/google/callback"
-            scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
+            scope = 'https://www.googleapis.com/auth/userinfo.email'
         }
     }
 }
