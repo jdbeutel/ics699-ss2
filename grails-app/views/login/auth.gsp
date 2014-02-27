@@ -42,7 +42,12 @@
 		</tr>
         <tr>
             <td colspan='2'>
-                <oauth:connect provider="google" id="google-connect-link">Login with Google</oauth:connect>
+                <oauth:connect provider="google" id="google-connect-link">Login or register with Google</oauth:connect>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                <oauth:connect provider="facebook" id="facebook-connect-link">Login or register with Facebook</oauth:connect>
             </td>
         </tr>
 	</table>

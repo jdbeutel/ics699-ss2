@@ -21,9 +21,12 @@
 	<body>
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
 
-        Logged with google?
-        <s2o:ifLoggedInWith provider="google">yes</s2o:ifLoggedInWith>
-        <s2o:ifNotLoggedInWith provider="google">no</s2o:ifNotLoggedInWith>
+        <g:each in="${['google', 'facebook']}" var="provider">
+            Logged with ${provider}?
+            <s2o:ifLoggedInWith provider="${provider}">yes</s2o:ifLoggedInWith>
+            <s2o:ifNotLoggedInWith provider="${provider}">no</s2o:ifNotLoggedInWith>
+            <br/>
+        </g:each>
 
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>

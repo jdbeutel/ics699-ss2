@@ -181,6 +181,15 @@ oauth {
             callback = "${baseURL}/oauth/google/callback"
             scope = 'https://www.googleapis.com/auth/userinfo.email'
         }
+
+        facebook {
+            api = org.scribe.builder.api.FacebookApi
+            key = // i.e., Facebook App ID, in external config file
+            secret = // i.e., Facebook App Secret, in external config file
+            successUri = '/oauth/facebook/success'
+            failureUri = '/oauth/facebook/error'
+            callback = "${baseURL}/oauth/facebook/callback"
+        }
     }
 }
 // Added by the Spring Security OAuth plugin:
