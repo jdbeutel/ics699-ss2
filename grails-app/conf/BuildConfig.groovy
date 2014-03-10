@@ -55,7 +55,7 @@ grails.project.dependency.resolution = {
 
     plugins {
         // plugins for the build system only
-        build ":tomcat:7.0.50.1"
+        build ":tomcat:7.0.52.1"
 
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
@@ -70,10 +70,10 @@ grails.project.dependency.resolution = {
         compile ':spring-security-oauth-facebook:0.1'
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.8" // or ":hibernate4:4.1.11.6"
+        runtime ":hibernate:3.6.10.10" // or ":hibernate4:4.3.4"
         runtime ":database-migration:1.3.8"
         runtime ":jquery:1.10.2.2"
-        runtime ":resources:1.2.1"
+        runtime ":resources:1.2.7"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
